@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AllTopSteals/static/css/main.9ed46562.css",
+    "main.js": "/AllTopSteals/static/js/main.2c5aa728.js",
+    "static/js/453.5777d3a5.chunk.js": "/AllTopSteals/static/js/453.5777d3a5.chunk.js",
+    "index.html": "/AllTopSteals/index.html",
+    "main.9ed46562.css.map": "/AllTopSteals/static/css/main.9ed46562.css.map",
+    "main.2c5aa728.js.map": "/AllTopSteals/static/js/main.2c5aa728.js.map",
+    "453.5777d3a5.chunk.js.map": "/AllTopSteals/static/js/453.5777d3a5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9ed46562.css",
+    "static/js/main.2c5aa728.js"
+  ]
+}
