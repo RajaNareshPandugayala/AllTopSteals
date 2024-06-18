@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
+    margin-bottom: 10px;
 }
 
 .page_headerLeft_divLogo {
@@ -100,6 +101,11 @@
     gap: 25px;
 }
 
+.page_headerRight_divMenuHome {
+    color: white;
+    text-decoration: none;
+}
+
 .page_headerRight_divMenuHome:hover,
 .page_headerRight_divMenuTopsteals:hover,
 .page_headerRight_divMenuCategoriesDivP:hover,
@@ -117,7 +123,7 @@
     align-items: start;
     justify-content: center;
     flex-direction: column;
-    padding: 10px 150px;
+    padding: 10px 120px;
     gap: 20px;
 }
 
@@ -230,10 +236,9 @@
     justify-content: space-between;
     padding: 0px 120px;
     flex-wrap: wrap;
-    gap: 15px;
 }
 
-
+/****************ProdectListBox_List-Start********************/
 .page_ProdectListBoxChildImage {
     width: 150px;
     height: 150px;
@@ -246,6 +251,7 @@
     justify-content: center;
     flex-direction: column;
     width: 250px;
+    margin-bottom: 15px;
 }
 
 
@@ -322,5 +328,97 @@
     background-color: lightgray;
     text-decoration: underline;
 }
+
+/****************ProdectListBox_List-End********************/
+
+/****************ProdectListBox_UniqueList-Start********************/
+
+.page_ProdectListBoxChildFullDetails {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    text-align: start;
+    gap: 10px;
+}
+
+.page_ProdectListBoxChildFullDetailsline1 {
+    background-color: #e5e3e3;
+    padding: 5px 0px;
+}
+
+.page_ProdectListBoxChildFullDetailsline1 a {
+    color: blue;
+}
+
+.page_ProdectListBoxChildFullDetailsline1text {
+    color: gray;
+}
+
+.page_ProdectListBoxChildFullDetailsline2 {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+
+.page_ProdectListBoxChildFullDetailsline3 {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    width: 50%;
+    gap: 25px;
+}
+
+.page_ProdectListBoxChildFullDetails3Top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+.page_ProdectListBoxChildFullDetailsImage {
+    width: 100%;
+}
+
+.page_ProdectListBoxChildFullDetails3details a {
+    color: blue;
+}
+
+.page_ProdectListBoxChildFullDetails3_AccessDeal {
+    width: 100%;
+    border: 1px solid #c9c9c9;
+    background-color: #e5e4e4;
+    border-radius: 0.10cm;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #6b6b6b;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+
+.page_ProdectListBoxChildFullDetails3_AccessDeal:hover {
+    background-color: lightgray;
+    text-decoration: underline;
+}
+
+.page_ProdectListBoxChildFullDetails4 {
+    font-size: 12px;
+    font-style: italic;
+    color: gray;
+}
+
+.page_ProdectListBoxChildFullDetails {
+    display: none;
+}
+
+/****************ProdectListBox_UniqueList-End********************/
 
 /***************************ProdectListBox-End**********************************/

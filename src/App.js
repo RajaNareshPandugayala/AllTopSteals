@@ -1,6 +1,11 @@
 // import logo from './logo.svg';
+// import React, { useState } from 'react';
+// import React, { useEffect } from 'react';
 import './App.css';
-import Header, { Footer, TitelAndSearchBar, PageNumber, ProdectsList } from './HomePage';
+// import { PageNumber } from './HomePage';
+import Header, { Footer, TitelAndSearchBar, PageNumber } from './HomePage';
+import ProdectsList from './HomePageProdectsList';
+
 
 
 function App() {
