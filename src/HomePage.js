@@ -17,7 +17,7 @@ function Header() {
                 <div className="page_headerRight_div">
                     <div className="page_headerRight_divMenu">
                         <a className="page_headerRight_divMenuHome" href="https://rajanareshpandugayala.github.io/AllTopSteals/" target="_parent">Home</a>
-                        <p className="page_headerRight_divMenuTopsteals">Top Steals</p>
+                        <p className="page_headerRight_divMenuTopsteals" id="topStealsFilter">Top Steals</p>
                         <div className="page_headerRight_divMenuCategoriesDiv">
                             <p className="page_headerRight_divMenuCategoriesDivP">Categories &#x025BF;</p>
                             <ul className="page_headerRight_divMenuCategoriesDivUl">
@@ -40,6 +40,7 @@ function Header() {
                                 <li className="page_headerRight_divMenuStoresDivUlLI">eBay</li>
                                 <li className="page_headerRight_divMenuStoresDivUlLI">Macy's</li>
                                 <li className="page_headerRight_divMenuStoresDivUlLI">Other Stores</li>
+
                             </ul>
                         </div>
                     </div>
@@ -105,6 +106,34 @@ export { TitelAndSearchBar };
 
 
 function PageNumber() {
+    React.useEffect(() => {
+        const pageNumberElements = document.querySelectorAll('.PageNumberBoxchild');
+        let selectedElement = document.querySelector('.PageNumberBoxchild01');
+
+        pageNumberElements.forEach(element => {
+            element.addEventListener('click', () => {
+                pageNumberElements.forEach(el => {
+                    el.style.backgroundColor = 'white';
+                    el.style.color = 'black';
+                });
+                element.style.backgroundColor = 'blue';
+                element.style.color = 'white';
+                selectedElement = element;
+            });
+
+            element.addEventListener('mouseenter', () => {
+                if (element !== selectedElement) {
+                    element.style.backgroundColor = 'lightgray';
+                }
+            });
+
+            element.addEventListener('mouseleave', () => {
+                if (element !== selectedElement) {
+                    element.style.backgroundColor = 'white';
+                }
+            });
+        });
+    }, []);
     return (
         <>
             <div className="PageNumberBoxParent">

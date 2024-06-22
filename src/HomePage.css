@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.hidden {
+    display: none;
+}
+
 
 /******************************Header-Start********************************************/
 .page_header {
@@ -233,17 +237,13 @@
 .page_ProdectListBoxParent {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0px 120px;
+    justify-content: start;
+    padding: 0px 95px;
     flex-wrap: wrap;
+    /* background-color: red; */
 }
 
 /****************ProdectListBox_List-Start********************/
-.page_ProdectListBoxChildImage {
-    width: 150px;
-    height: 150px;
-}
-
 
 .page_ProdectListBoxChild {
     display: flex;
@@ -251,9 +251,16 @@
     justify-content: center;
     flex-direction: column;
     width: 250px;
+    margin-left: 30px;
     margin-bottom: 15px;
+    /* background-color: red; */
 }
 
+.page_ProdectListBoxChildImage {
+    width: 150px;
+    height: 150px;
+    /* background-color: red; */
+}
 
 .page_ProdectListBoxChildTop {
     display: flex;
@@ -262,10 +269,12 @@
     width: 100%;
     font-size: 12px;
     font-weight: bold;
+    /* background-color: red; */
 }
 
 .page_ProdectListBoxChildDetails {
     text-align: start;
+    /* background-color: red; */
 }
 
 .page_ProdectListBoxChildPopupParent {
@@ -273,6 +282,7 @@
     justify-content: end;
     position: relative;
     bottom: 215px;
+    /* background-color: red; */
 }
 
 .page_ProdectListBoxChildPopupParent:hover {
@@ -291,21 +301,25 @@
     text-align: center;
     position: absolute;
     width: 200px;
+    /* background-color: red; */
 }
 
 .page_ProdectListBoxChildPopupText {
     background-color: white;
     border-radius: 0.25cm;
     padding: 5px;
+    /* background-color: red; */
 }
 
 
 .page_ProdectListBoxChildDetailsPrice {
     font-weight: bold;
+    /* background-color: red; */
 }
 
 .page_ProdectListBoxChildDetailsPrice_DiscountPrice {
     color: red;
+    /* background-color: red; */
 }
 
 .page_ProdectListBoxChildDetailsPrice_OrginalPrice {
@@ -322,11 +336,13 @@
     font-size: 14px;
     color: #6b6b6b;
     cursor: pointer;
+    /* background-color: red; */
 }
 
 .page_ProdectListBoxChild_ViewDetails:hover {
     background-color: lightgray;
     text-decoration: underline;
+    /* background-color: red; */
 }
 
 /****************ProdectListBox_List-End********************/
@@ -341,6 +357,7 @@
     justify-content: center;
     text-align: start;
     gap: 10px;
+    /* background-color: red; */
 }
 
 .page_ProdectListBoxChildFullDetailsline1 {
