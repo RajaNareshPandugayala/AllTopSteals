@@ -620,7 +620,7 @@ function Prodect({ product, onViewDetails }) {
             </div>
             <div className="page_ProdectListBoxChildFullDetails">
                 <div className="page_ProdectListBoxChildFullDetailsline1">
-                    <a href="https://rajanareshpandugayala.github.io/AllTopSteals/" target="_parent">Home</a>
+                    <span href="#" target="_parent" className="page_ProdectListBoxChildFullDetailsline1Back" onClick={() => window.location.reload()}>Home</span>
                     <div className="page_ProdectListBoxChildFullDetailsline1text">/ {product.description}</div>
                 </div>
                 <div className="page_ProdectListBoxChildFullDetailsline2">{product.description}</div>
@@ -646,6 +646,19 @@ function Prodect({ product, onViewDetails }) {
 }
 
 function ProdectsList() {
+
+    // //PageNumberBoxchild
+    // const [currentPage, setCurrentPage] = React.useState(1);
+    // const productsPerPage = 6;
+
+    // const indexOfLastProduct = currentPage * productsPerPage;
+    // const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    // const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    // const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+
+
     React.useEffect(() => {
         const viewDetailsButtons = document.querySelectorAll('.page_ProdectListBoxChild_ViewDetails');
         const allProdectListBoxChildFullDetails = document.querySelectorAll('.page_ProdectListBoxChildFullDetails');
@@ -657,7 +670,42 @@ function ProdectsList() {
 
 
         const pageNumberBoxParent = document.querySelector('.PageNumberBoxParent');
+        const PageNumberBoxchild = document.querySelectorAll('.PageNumberBoxchild');
+
+
         const page_titelSearchBar = document.querySelector('.page_titelSearchBar');
+
+
+
+        //PageNumberBoxchild
+        let selectedElement = document.querySelector('.PageNumberBoxchild01');
+
+        PageNumberBoxchild.forEach((element, index) => {
+            element.addEventListener('click', () => {
+                PageNumberBoxchild.forEach(el => {
+                    el.style.backgroundColor = 'white';
+                    el.style.color = 'black';
+                });
+                element.style.backgroundColor = 'blue';
+                element.style.color = 'white';
+                selectedElement = element;
+
+                // Change current page based on clicked element index
+                // paginate(index + 1);
+            });
+
+            element.addEventListener('mouseenter', () => {
+                if (element !== selectedElement) {
+                    element.style.backgroundColor = 'lightgray';
+                }
+            });
+
+            element.addEventListener('mouseleave', () => {
+                if (element !== selectedElement) {
+                    element.style.backgroundColor = 'white';
+                }
+            });
+        });
 
 
         viewDetailsButtons.forEach((button, index) => {
@@ -811,6 +859,7 @@ function ProdectsList() {
 
 
     return (
+
         <div className="page_ProdectListBoxParent">
             {products.map((product, index) => (
                 <Prodect
@@ -818,10 +867,14 @@ function ProdectsList() {
                     product={product}
                     onViewDetails={() => handleViewDetails(index)}
                     isActive={activeIndex === index}
+
+                //             onViewDetails={() => handleViewDetails(indexOfFirstProduct + index)}
+                //             isActive={activeIndex === (indexOfFirstProduct + index)}
                 />
             ))}
         </div>
     );
+
 }
 
 export default ProdectsList;

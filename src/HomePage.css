@@ -365,8 +365,10 @@
     padding: 5px 0px;
 }
 
-.page_ProdectListBoxChildFullDetailsline1 a {
+.page_ProdectListBoxChildFullDetailsline1Back {
     color: blue;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .page_ProdectListBoxChildFullDetailsline1text {
