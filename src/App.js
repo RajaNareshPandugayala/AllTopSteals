@@ -2,8 +2,7 @@
 // import React, { useState } from 'react';
 // import React, { useEffect } from 'react';
 import './App.css';
-// import { PageNumber } from './HomePage';
-import Header, { Footer, TitelAndSearchBar, PageNumber } from './HomePage';
+import { Header, Footer, TitelAndSearchBar, PageNumber } from './HomePage';
 import ProdectsList from './HomePageProdectsList';
 
 

@@ -593,7 +593,6 @@ function Prodect({ product, onViewDetails }) {
         return text.substring(0, maxLength) + '...';
     };
 
-
     return (
         <div className="page_ProdectListBoxChildParent">
             <div className="page_ProdectListBoxChild">
@@ -646,19 +645,6 @@ function Prodect({ product, onViewDetails }) {
 }
 
 function ProdectsList() {
-
-    // //PageNumberBoxchild
-    // const [currentPage, setCurrentPage] = React.useState(1);
-    // const productsPerPage = 6;
-
-    // const indexOfLastProduct = currentPage * productsPerPage;
-    // const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    // const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
-
-    // const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-
-
     React.useEffect(() => {
         const viewDetailsButtons = document.querySelectorAll('.page_ProdectListBoxChild_ViewDetails');
         const allProdectListBoxChildFullDetails = document.querySelectorAll('.page_ProdectListBoxChildFullDetails');
@@ -675,11 +661,8 @@ function ProdectsList() {
 
         const page_titelSearchBar = document.querySelector('.page_titelSearchBar');
 
-
-
         //PageNumberBoxchild
         let selectedElement = document.querySelector('.PageNumberBoxchild01');
-
         PageNumberBoxchild.forEach((element, index) => {
             element.addEventListener('click', () => {
                 PageNumberBoxchild.forEach(el => {
@@ -689,9 +672,6 @@ function ProdectsList() {
                 element.style.backgroundColor = 'blue';
                 element.style.color = 'white';
                 selectedElement = element;
-
-                // Change current page based on clicked element index
-                // paginate(index + 1);
             });
 
             element.addEventListener('mouseenter', () => {
@@ -706,6 +686,30 @@ function ProdectsList() {
                 }
             });
         });
+
+        const pageNumberBoxes = document.querySelectorAll('.PageNumberBoxchild');
+        // Function to handle pagination
+        const handlePagination = (pageNumber) => {
+            const allProdectListBoxChild = document.querySelectorAll('.page_ProdectListBoxChild');
+            allProdectListBoxChild.forEach((child, index) => {
+                if (index >= (pageNumber - 1) * 6 && index < pageNumber * 6) {
+                    child.style.display = 'flex';
+                } else {
+                    child.style.display = 'none';
+                }
+            });
+        };
+
+        // Handle initial pagination setup
+        handlePagination(1);
+
+        // Example: Pagination click events
+        pageNumberBoxes.forEach((box, index) => {
+            box.addEventListener('click', () => {
+                handlePagination(index + 1); // Adjust index for 1-based page numbers
+            });
+        });
+
 
 
         viewDetailsButtons.forEach((button, index) => {
@@ -731,12 +735,16 @@ function ProdectsList() {
         });
 
 
+
+
         const topStealsFilterButton = document.getElementById('topStealsFilter');
         topStealsFilterButton.addEventListener('click', () => {
             allProdectListBoxChild.forEach((child) => {
                 const topStealsElement = child.querySelector('.page_ProdectListBoxChild_topSteals');
                 if (topStealsElement && (topStealsElement.textContent === 'Yes' || topStealsElement.textContent === 'yes')) {
                     child.style.display = 'flex'; // or 'flex' depending on your layout
+                    pageNumberBoxParent.style.display = 'none';
+
                 } else {
                     child.style.display = 'none';
                 }
@@ -754,11 +762,13 @@ function ProdectsList() {
                     // Show products not in Amazon, Walmart, Best Buy, Woot, eBay, Macy's
                     if (!['Amazon', 'Walmart', 'Best Buy', 'Woot', 'eBay', 'Macy\'s'].includes(productStore)) {
                         child.style.display = 'flex';
+                        pageNumberBoxParent.style.display = 'none';
                     } else {
                         child.style.display = 'none';
                     }
                 } else if (productStore === clickedStore) {
                     child.style.display = 'flex';
+                    pageNumberBoxParent.style.display = 'none';
                 } else {
                     child.style.display = 'none';
                 }
@@ -772,8 +782,6 @@ function ProdectsList() {
 
 
 
-
-
         const handleCategoriesFilter = (event) => {
             const clickedCategorie = event.target.textContent.trim();
 
@@ -783,6 +791,7 @@ function ProdectsList() {
                     // Show products not in below line
                     if (!['Clothing', 'Accessories', 'Computers', 'Electronics', 'Home', 'Garden', 'Sports', 'Outdoors', 'Toys', 'Games', 'Kitchen', 'Dining'].includes(description)) {
                         child.style.display = 'flex';
+                        pageNumberBoxParent.style.display = 'none';
                     } else {
                         child.style.display = 'none';
                     }
@@ -791,6 +800,7 @@ function ProdectsList() {
                     // Show products in below line
                     if (['Clothing', 'Accessories'].includes(description)) {
                         child.style.display = 'flex';
+                        pageNumberBoxParent.style.display = 'none';
                     } else {
                         child.style.display = 'none';
                     }
@@ -799,6 +809,7 @@ function ProdectsList() {
                     // Show products in below line
                     if (['Computers', 'Electronics'].includes(description)) {
                         child.style.display = 'flex';
+                        pageNumberBoxParent.style.display = 'none';
                     } else {
                         child.style.display = 'none';
                     }
@@ -807,6 +818,7 @@ function ProdectsList() {
                     // Show products in below line
                     if (['Home', 'Garden'].includes(description)) {
                         child.style.display = 'flex';
+                        pageNumberBoxParent.style.display = 'none';
                     } else {
                         child.style.display = 'none';
                     }
@@ -815,6 +827,7 @@ function ProdectsList() {
                     // Show products in below line
                     if (['Sports', 'Outdoors'].includes(description)) {
                         child.style.display = 'flex';
+                        pageNumberBoxParent.style.display = 'none';
                     } else {
                         child.style.display = 'none';
                     }
@@ -823,6 +836,7 @@ function ProdectsList() {
                     // Show products in below line
                     if (['Toys', 'Games'].includes(description)) {
                         child.style.display = 'flex';
+                        pageNumberBoxParent.style.display = 'none';
                     } else {
                         child.style.display = 'none';
                     }
@@ -831,6 +845,7 @@ function ProdectsList() {
                     // Show products in below line
                     if (['Kitchen', 'Dining'].includes(description)) {
                         child.style.display = 'flex';
+                        pageNumberBoxParent.style.display = 'none';
                     } else {
                         child.style.display = 'none';
                     }
@@ -850,7 +865,6 @@ function ProdectsList() {
 
 
 
-
     const [activeIndex, setActiveIndex] = React.useState(null);
 
     const handleViewDetails = (index) => {
@@ -867,9 +881,6 @@ function ProdectsList() {
                     product={product}
                     onViewDetails={() => handleViewDetails(index)}
                     isActive={activeIndex === index}
-
-                //             onViewDetails={() => handleViewDetails(indexOfFirstProduct + index)}
-                //             isActive={activeIndex === (indexOfFirstProduct + index)}
                 />
             ))}
         </div>
