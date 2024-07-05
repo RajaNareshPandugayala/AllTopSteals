@@ -620,4 +620,44 @@
     .page_footerBottom_Div {
         font-size: 12.5px;
     }
+
+    .page_header {
+        padding: 20px 10px;
+    }
+
+
+    .page_titelSearchBar {
+        padding: 10px;
+    }
+
+    .page_ProdectListBoxParent {
+        padding: 0px 10px;
+        /* background-color: red; */
+    }
+
+    .page_ProdectListBoxChild {
+        width: 100%;
+        margin-left: 0px;
+        margin-bottom: 10px;
+        /* background-color: red; */
+    }
+
+    .PageNumberBoxParent {
+        padding: 0px 10px;
+        /* background-color: red; */
+    }
+
+    .page_ProdectListBoxChildPopupParent {
+        bottom: 130px;
+        /* background-color: red; */
+    }
+
+    .page_ProdectListBoxChildDetails:hover .page_ProdectListBoxChildPopup {
+        width: 80%;
+    }
+
+    .page_footer {
+        padding: 5px 10px;
+        /* background-color: green; */
+    }
 }
