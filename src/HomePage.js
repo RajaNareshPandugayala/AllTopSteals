@@ -45,6 +45,7 @@ function Header() {
         menu = document.querySelector('.page_headerRight_div');
         const mobileMenuList = document.querySelectorAll('.mobileMenuList00');
 
+
         menuIcon.addEventListener('click', showMenu);
         closeIcon.addEventListener('click', hideMenu);
         document.addEventListener('click', handleClickOutside);

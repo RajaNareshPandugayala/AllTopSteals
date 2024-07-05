@@ -644,22 +644,276 @@ function Prodect({ product, onViewDetails }) {
     );
 }
 
+// function ProdectsList() {
+//     React.useEffect(() => {
+//         const viewDetailsButtons = document.querySelectorAll('.page_ProdectListBoxChild_ViewDetails');
+
+//         const allProdectListBoxChildFullDetails = document.querySelectorAll('.page_ProdectListBoxChildFullDetails');
+//         const page_titelSearchBar = document.querySelector('.page_titelSearchBar');
+
+
+//         const storesFilterButton = document.querySelectorAll('.page_headerRight_divMenuStoresDivUlLI');
+//         const categoriesFilterButton = document.querySelectorAll('.page_headerRight_divMenuCategoriesDivUlLI');
+
+//         const allProdectListBoxChild = document.querySelectorAll('.page_ProdectListBoxChild');
+
+
+//         const pageNumberBoxParent = document.querySelector('.PageNumberBoxParent');
+//         const PageNumberBoxchild = document.querySelectorAll('.PageNumberBoxchild');
+
+
+
+//         //PageNumberBoxchild
+//         let selectedElement = document.querySelector('.PageNumberBoxchild01');
+//         PageNumberBoxchild.forEach((element, index) => {
+//             element.addEventListener('click', () => {
+//                 PageNumberBoxchild.forEach(el => {
+//                     el.style.backgroundColor = 'white';
+//                     el.style.color = 'black';
+//                 });
+//                 element.style.backgroundColor = 'blue';
+//                 element.style.color = 'white';
+//                 selectedElement = element;
+//             });
+
+//             element.addEventListener('mouseenter', () => {
+//                 if (element !== selectedElement) {
+//                     element.style.backgroundColor = 'lightgray';
+//                 }
+//             });
+
+//             element.addEventListener('mouseleave', () => {
+//                 if (element !== selectedElement) {
+//                     element.style.backgroundColor = 'white';
+//                 }
+//             });
+//         });
+
+//         const pageNumberBoxes = document.querySelectorAll('.PageNumberBoxchild');
+//         // Function to handle pagination
+//         const handlePagination = (pageNumber) => {
+//             const allProdectListBoxChild = document.querySelectorAll('.page_ProdectListBoxChild');
+//             allProdectListBoxChild.forEach((child, index) => {
+//                 if (index >= (pageNumber - 1) * 6 && index < pageNumber * 6) {
+//                     child.style.display = 'flex';
+//                 } else {
+//                     child.style.display = 'none';
+//                 }
+//             });
+//         };
+
+//         // Handle initial pagination setup
+//         handlePagination(1);
+
+//         // Example: Pagination click events
+//         pageNumberBoxes.forEach((box, index) => {
+//             box.addEventListener('click', () => {
+//                 handlePagination(index + 1); // Adjust index for 1-based page numbers
+//             });
+//         });
+
+
+
+//         viewDetailsButtons.forEach((button, index) => {
+//             button.addEventListener('click', () => {
+//                 // Hide all .page_ProdectListBoxChildFullDetails
+//                 allProdectListBoxChildFullDetails.forEach((detail) => {
+//                     detail.style.display = 'none';
+//                 });
+
+//                 // Hide all .page_ProdectListBoxChild
+//                 allProdectListBoxChild.forEach((child) => {
+//                     child.style.display = 'none';
+//                 });
+
+//                 // Display the clicked details
+//                 allProdectListBoxChildFullDetails[index].style.display = 'flex';
+
+
+//                 pageNumberBoxParent.style.display = 'none';
+//                 page_titelSearchBar.style.display = 'none';
+
+//             });
+//         });
+
+
+
+
+//         const topStealsFilterButton = document.getElementById('topStealsFilter');
+//         topStealsFilterButton.addEventListener('click', () => {
+//             allProdectListBoxChild.forEach((child) => {
+//                 const topStealsElement = child.querySelector('.page_ProdectListBoxChild_topSteals');
+//                 if (topStealsElement && (topStealsElement.textContent === 'Yes' || topStealsElement.textContent === 'yes')) {
+//                     child.style.display = 'flex'; // or 'flex' depending on your layout
+//                     pageNumberBoxParent.style.display = 'none';
+//                 } else {
+//                     child.style.display = 'none';
+//                 }
+//             });
+//         });
+
+
+
+//         const handleStoresFilter = (event) => {
+//             const clickedStore = event.target.textContent.trim();
+
+//             allProdectListBoxChild.forEach((child) => {
+//                 const productStore = child.querySelector('.page_ProdectListBoxChild_stores').textContent.trim();
+//                 if (clickedStore === 'Other Stores') {
+//                     // Show products not in Amazon, Walmart, Best Buy, Woot, eBay, Macy's
+//                     if (!['Amazon', 'Walmart', 'Best Buy', 'Woot', 'eBay', 'Macy\'s'].includes(productStore)) {
+//                         child.style.display = 'flex';
+//                         pageNumberBoxParent.style.display = 'none';
+//                     } else {
+//                         child.style.display = 'none';
+//                     }
+//                 } else if (productStore === clickedStore) {
+//                     child.style.display = 'flex';
+//                     pageNumberBoxParent.style.display = 'none';
+//                 } else {
+//                     child.style.display = 'none';
+//                 }
+//             });
+//         };
+
+//         // Attach click event listeners to store filter buttons
+//         storesFilterButton.forEach(button => {
+//             button.addEventListener('click', handleStoresFilter);
+//         });
+
+
+
+//         const handleCategoriesFilter = (event) => {
+//             const clickedCategorie = event.target.textContent.trim();
+
+//             allProdectListBoxChild.forEach(child => {
+//                 const description = child.querySelector('.page_ProdectListBoxChild_categories').textContent.trim();
+//                 if (clickedCategorie === 'Other Categories') {
+//                     // Show products not in below line
+//                     if (!['Clothing', 'Accessories', 'Computers', 'Electronics', 'Home', 'Garden', 'Sports', 'Outdoors', 'Toys', 'Games', 'Kitchen', 'Dining'].includes(description)) {
+//                         child.style.display = 'flex';
+//                         pageNumberBoxParent.style.display = 'none';
+//                     } else {
+//                         child.style.display = 'none';
+//                     }
+//                 }
+//                 if (clickedCategorie === 'Clothing & Accessories') {
+//                     // Show products in below line
+//                     if (['Clothing', 'Accessories'].includes(description)) {
+//                         child.style.display = 'flex';
+//                         pageNumberBoxParent.style.display = 'none';
+//                     } else {
+//                         child.style.display = 'none';
+//                     }
+//                 }
+//                 if (clickedCategorie === 'Computers & Electronics') {
+//                     // Show products in below line
+//                     if (['Computers', 'Electronics'].includes(description)) {
+//                         child.style.display = 'flex';
+//                         pageNumberBoxParent.style.display = 'none';
+//                     } else {
+//                         child.style.display = 'none';
+//                     }
+//                 }
+//                 if (clickedCategorie === 'Home & Garden') {
+//                     // Show products in below line
+//                     if (['Home', 'Garden'].includes(description)) {
+//                         child.style.display = 'flex';
+//                         pageNumberBoxParent.style.display = 'none';
+//                     } else {
+//                         child.style.display = 'none';
+//                     }
+//                 }
+//                 if (clickedCategorie === 'Sports & Outdoors') {
+//                     // Show products in below line
+//                     if (['Sports', 'Outdoors'].includes(description)) {
+//                         child.style.display = 'flex';
+//                         pageNumberBoxParent.style.display = 'none';
+//                     } else {
+//                         child.style.display = 'none';
+//                     }
+//                 }
+//                 if (clickedCategorie === 'Toys & Games') {
+//                     // Show products in below line
+//                     if (['Toys', 'Games'].includes(description)) {
+//                         child.style.display = 'flex';
+//                         pageNumberBoxParent.style.display = 'none';
+//                     } else {
+//                         child.style.display = 'none';
+//                     }
+//                 }
+//                 if (clickedCategorie === 'Kitchen & Dining') {
+//                     // Show products in below line
+//                     if (['Kitchen', 'Dining'].includes(description)) {
+//                         child.style.display = 'flex';
+//                         pageNumberBoxParent.style.display = 'none';
+//                     } else {
+//                         child.style.display = 'none';
+//                     }
+//                 }
+//             });
+//         };
+
+//         // Attach click event listeners to store filter buttons
+//         categoriesFilterButton.forEach(button => {
+//             button.addEventListener('click', handleCategoriesFilter);
+//         });
+
+
+
+
+//     }, []);
+
+
+
+//     const [activeIndex, setActiveIndex] = React.useState(null);
+
+//     const handleViewDetails = (index) => {
+//         setActiveIndex(index);
+//     };
+
+
+//     return (
+
+//         <div className="page_ProdectListBoxParent">
+//             {products.map((product, index) => (
+//                 <Prodect
+//                     key={index}
+//                     product={product}
+//                     onViewDetails={() => handleViewDetails(index)}
+//                     isActive={activeIndex === index}
+//                 />
+//             ))}
+//         </div>
+//     );
+
+// }
+
+
+
+
+
+
+
+
 function ProdectsList() {
     React.useEffect(() => {
         const viewDetailsButtons = document.querySelectorAll('.page_ProdectListBoxChild_ViewDetails');
         const allProdectListBoxChildFullDetails = document.querySelectorAll('.page_ProdectListBoxChildFullDetails');
-
-        const storesFilterButton = document.querySelectorAll('.page_headerRight_divMenuStoresDivUlLI');
-        const categoriesFilterButton = document.querySelectorAll('.page_headerRight_divMenuCategoriesDivUlLI');
-
         const allProdectListBoxChild = document.querySelectorAll('.page_ProdectListBoxChild');
-
-
         const pageNumberBoxParent = document.querySelector('.PageNumberBoxParent');
         const PageNumberBoxchild = document.querySelectorAll('.PageNumberBoxchild');
-
-
         const page_titelSearchBar = document.querySelector('.page_titelSearchBar');
+        const storesFilterButton = document.querySelectorAll('.page_headerRight_divMenuStoresDivUlLI');
+        const categoriesFilterButton = document.querySelectorAll('.page_headerRight_divMenuCategoriesDivUlLI');
+        const topStealsFilterButton = document.getElementById('topStealsFilter');
+
+        const hideFullDetailsShowSearchBar = () => {
+            allProdectListBoxChildFullDetails.forEach((detail) => {
+                detail.style.display = 'none';
+            });
+            page_titelSearchBar.style.display = 'flex';
+        };
 
         //PageNumberBoxchild
         let selectedElement = document.querySelector('.PageNumberBoxchild01');
@@ -710,8 +964,6 @@ function ProdectsList() {
             });
         });
 
-
-
         viewDetailsButtons.forEach((button, index) => {
             button.addEventListener('click', () => {
                 // Hide all .page_ProdectListBoxChildFullDetails
@@ -727,39 +979,29 @@ function ProdectsList() {
                 // Display the clicked details
                 allProdectListBoxChildFullDetails[index].style.display = 'flex';
 
-
                 pageNumberBoxParent.style.display = 'none';
                 page_titelSearchBar.style.display = 'none';
-
             });
         });
 
-
-
-
-        const topStealsFilterButton = document.getElementById('topStealsFilter');
         topStealsFilterButton.addEventListener('click', () => {
             allProdectListBoxChild.forEach((child) => {
                 const topStealsElement = child.querySelector('.page_ProdectListBoxChild_topSteals');
                 if (topStealsElement && (topStealsElement.textContent === 'Yes' || topStealsElement.textContent === 'yes')) {
-                    child.style.display = 'flex'; // or 'flex' depending on your layout
+                    child.style.display = 'flex';
                     pageNumberBoxParent.style.display = 'none';
-
                 } else {
                     child.style.display = 'none';
                 }
             });
+            hideFullDetailsShowSearchBar();
         });
-
-
 
         const handleStoresFilter = (event) => {
             const clickedStore = event.target.textContent.trim();
-
             allProdectListBoxChild.forEach((child) => {
                 const productStore = child.querySelector('.page_ProdectListBoxChild_stores').textContent.trim();
                 if (clickedStore === 'Other Stores') {
-                    // Show products not in Amazon, Walmart, Best Buy, Woot, eBay, Macy's
                     if (!['Amazon', 'Walmart', 'Best Buy', 'Woot', 'eBay', 'Macy\'s'].includes(productStore)) {
                         child.style.display = 'flex';
                         pageNumberBoxParent.style.display = 'none';
@@ -773,97 +1015,54 @@ function ProdectsList() {
                     child.style.display = 'none';
                 }
             });
+            hideFullDetailsShowSearchBar();
         };
 
-        // Attach click event listeners to store filter buttons
         storesFilterButton.forEach(button => {
             button.addEventListener('click', handleStoresFilter);
         });
 
-
-
         const handleCategoriesFilter = (event) => {
             const clickedCategorie = event.target.textContent.trim();
-
             allProdectListBoxChild.forEach(child => {
                 const description = child.querySelector('.page_ProdectListBoxChild_categories').textContent.trim();
                 if (clickedCategorie === 'Other Categories') {
-                    // Show products not in below line
                     if (!['Clothing', 'Accessories', 'Computers', 'Electronics', 'Home', 'Garden', 'Sports', 'Outdoors', 'Toys', 'Games', 'Kitchen', 'Dining'].includes(description)) {
                         child.style.display = 'flex';
                         pageNumberBoxParent.style.display = 'none';
                     } else {
                         child.style.display = 'none';
                     }
-                }
-                if (clickedCategorie === 'Clothing & Accessories') {
-                    // Show products in below line
-                    if (['Clothing', 'Accessories'].includes(description)) {
-                        child.style.display = 'flex';
-                        pageNumberBoxParent.style.display = 'none';
-                    } else {
-                        child.style.display = 'none';
-                    }
-                }
-                if (clickedCategorie === 'Computers & Electronics') {
-                    // Show products in below line
-                    if (['Computers', 'Electronics'].includes(description)) {
-                        child.style.display = 'flex';
-                        pageNumberBoxParent.style.display = 'none';
-                    } else {
-                        child.style.display = 'none';
-                    }
-                }
-                if (clickedCategorie === 'Home & Garden') {
-                    // Show products in below line
-                    if (['Home', 'Garden'].includes(description)) {
-                        child.style.display = 'flex';
-                        pageNumberBoxParent.style.display = 'none';
-                    } else {
-                        child.style.display = 'none';
-                    }
-                }
-                if (clickedCategorie === 'Sports & Outdoors') {
-                    // Show products in below line
-                    if (['Sports', 'Outdoors'].includes(description)) {
-                        child.style.display = 'flex';
-                        pageNumberBoxParent.style.display = 'none';
-                    } else {
-                        child.style.display = 'none';
-                    }
-                }
-                if (clickedCategorie === 'Toys & Games') {
-                    // Show products in below line
-                    if (['Toys', 'Games'].includes(description)) {
-                        child.style.display = 'flex';
-                        pageNumberBoxParent.style.display = 'none';
-                    } else {
-                        child.style.display = 'none';
-                    }
-                }
-                if (clickedCategorie === 'Kitchen & Dining') {
-                    // Show products in below line
-                    if (['Kitchen', 'Dining'].includes(description)) {
-                        child.style.display = 'flex';
-                        pageNumberBoxParent.style.display = 'none';
-                    } else {
-                        child.style.display = 'none';
-                    }
+                } else if (clickedCategorie === 'Clothing & Accessories' && ['Clothing', 'Accessories'].includes(description)) {
+                    child.style.display = 'flex';
+                    pageNumberBoxParent.style.display = 'none';
+                } else if (clickedCategorie === 'Computers & Electronics' && ['Computers', 'Electronics'].includes(description)) {
+                    child.style.display = 'flex';
+                    pageNumberBoxParent.style.display = 'none';
+                } else if (clickedCategorie === 'Home & Garden' && ['Home', 'Garden'].includes(description)) {
+                    child.style.display = 'flex';
+                    pageNumberBoxParent.style.display = 'none';
+                } else if (clickedCategorie === 'Sports & Outdoors' && ['Sports', 'Outdoors'].includes(description)) {
+                    child.style.display = 'flex';
+                    pageNumberBoxParent.style.display = 'none';
+                } else if (clickedCategorie === 'Toys & Games' && ['Toys', 'Games'].includes(description)) {
+                    child.style.display = 'flex';
+                    pageNumberBoxParent.style.display = 'none';
+                } else if (clickedCategorie === 'Kitchen & Dining' && ['Kitchen', 'Dining'].includes(description)) {
+                    child.style.display = 'flex';
+                    pageNumberBoxParent.style.display = 'none';
+                } else {
+                    child.style.display = 'none';
                 }
             });
+            hideFullDetailsShowSearchBar();
         };
 
-        // Attach click event listeners to store filter buttons
         categoriesFilterButton.forEach(button => {
             button.addEventListener('click', handleCategoriesFilter);
         });
 
-
-
-
     }, []);
-
-
 
     const [activeIndex, setActiveIndex] = React.useState(null);
 
@@ -871,9 +1070,7 @@ function ProdectsList() {
         setActiveIndex(index);
     };
 
-
     return (
-
         <div className="page_ProdectListBoxParent">
             {products.map((product, index) => (
                 <Prodect
@@ -885,7 +1082,7 @@ function ProdectsList() {
             ))}
         </div>
     );
-
 }
+
 
 export default ProdectsList;
