@@ -158,6 +158,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 120px;
+    /* background-color: green; */
 }
 
 
@@ -201,6 +202,7 @@
     align-items: center;
     justify-content: start;
     padding: 10px 120px;
+
 }
 
 .PageNumberBoxchildParent {
@@ -361,12 +363,14 @@
     justify-content: center;
     text-align: start;
     gap: 10px;
+    padding: 0px 25px;
     /* background-color: red; */
 }
 
 .page_ProdectListBoxChildFullDetailsline1 {
     background-color: #e5e3e3;
     padding: 5px 0px;
+    /* background-color: red; */
 }
 
 .page_ProdectListBoxChildFullDetailsline1Back {
@@ -472,22 +476,75 @@
 
 @media screen and (max-width: 700px) {
 
+    .page_header {
+        margin-bottom: 0px;
+    }
+
     .page_titelSearchBar {
-        justify-content: center;
-        flex-direction: column;
+        justify-content: space-between;
+        /* flex-direction: column; */
         gap: 10px;
+    }
+
+    .page_titelSearchBar {
+        padding: 20px;
+    }
+
+    .page_ProdectListBoxParent {
+        padding: 0px 20px;
+        /* background-color: red; */
+    }
+
+    .page_ProdectListBoxChild {
+        width: 100%;
+        margin-left: 0px;
+        margin-bottom: 10px;
+        /* background-color: red; */
+    }
+
+    .PageNumberBoxParent {
+        padding: 0px 20px;
+        /* background-color: red; */
+    }
+
+    .page_ProdectListBoxChildPopupParent {
+        bottom: 130px;
+        /* background-color: red; */
+    }
+
+    .page_ProdectListBoxChildDetails:hover .page_ProdectListBoxChildPopup {
+        width: 80%;
+    }
+
+    .page_footer {
+        padding: 5px 20px;
+        /* background-color: green; */
+    }
+
+    .page_ProdectListBoxChildFullDetails {
+        padding: 0px;
+    }
+
+    .PageNumberBoxchild {
+        padding: 3px;
+        width: 30px;
     }
 }
 
 
 @media screen and (max-width: 600px) {
 
+    .page_titelSearchBar_titel {
+        font-size: 28px;
+    }
+
     .page_ProdectListBoxChild {
-        width: 85%;
+        width: 100%;
     }
 
     .page_ProdectListBoxChildFullDetailsline3 {
-        width: 90%;
+        width: 100%;
+        /* background-color: green; */
     }
 
     .page_headerRight_div {
