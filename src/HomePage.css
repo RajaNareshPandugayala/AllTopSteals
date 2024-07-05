@@ -526,6 +526,10 @@
         padding: 0px;
     }
 
+    .page_ProdectListBoxChildFullDetailsline2 {
+        font-size: 22px;
+    }
+
     .PageNumberBoxchild {
         padding: 3px;
         width: 30px;
@@ -607,5 +611,13 @@
 
     .page_titelSearchBarFormSearchBar {
         width: 100px;
+    }
+
+    .page_footer {
+        gap: 10px;
+    }
+
+    .page_footerBottom_Div {
+        font-size: 12.5px;
     }
 }
