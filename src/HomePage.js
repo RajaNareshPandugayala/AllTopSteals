@@ -125,7 +125,7 @@ function Footer() {
                     <a href="local:8000" target="_self">Disclosure</a>
                 </span>
             </div>
-            <div className="page_footerBottom_Div">Copyright © Shusank Tech 2024. All rights reserved.</div>
+            <a href="https://shushanktech.com/" target="_blanck" className="page_footerBottom_Div">Copyright © Shusank Tech 2024. All rights reserved.</a>
         </footer>
     );
 }
