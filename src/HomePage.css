@@ -174,6 +174,7 @@
 .page_titelSearchBarFormSearchBar {
     border: 1px solid transparent;
     padding: 5px;
+    /* background-color: green; */
 }
 
 
@@ -594,5 +595,17 @@
 
     .page_headerLeft_divImageMenu {
         display: flex;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+
+    .page_titelSearchBar_titel {
+        font-size: 18px;
+    }
+
+    .page_titelSearchBarFormSearchBar {
+        width: 100px;
     }
 }
